@@ -34,8 +34,16 @@ public class SmileyFace extends Canvas
       window.setColor(Color.YELLOW);
       window.fillOval( 210, 100, 400, 400 );
 
-		//add more code here
-
-
+      //add more code here
+      //draw 2 eyes
+      window.setColor(Color.GREEN);
+      window.fillOval(210+80, 210, 400/6, 200/5);
+      window.fillOval(210+400-150, 210, 400/6, 200/5);
+      //draw black nose
+      window.setColor(Color.BLACK);
+      window.fillOval(210+(400)/2-20, 100+400/2, 40, 40);
+      //draw smile
+      window.setColor(Color.RED);
+      window.drawArc(210+100, 350, 200, 50, 90+90, 180);
    }
 }
