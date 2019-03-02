@@ -1,5 +1,7 @@
 package GraphicsUnit1;
 
+import java.awt.Color;
+
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
@@ -20,12 +22,11 @@ public class GraphicsRunner extends JFrame
 		super("Graphics Runner");
 
 		setSize(WIDTH,HEIGHT);
-
-		//getContentPane().add(new SmileyFace());
-		getContentPane().add(new BigHouse());
-		//add other classes to run them 
-		//BigHouse, Robot, or ShapePanel 
-
+		//comment the things out to see others
+		getContentPane().add(new SmileyFace());
+		//getContentPane().add(new BigHouse());
+		//getContentPane().add(new Robot());
+		//getContentPane().add(new ShapePanel());
 		setVisible(true);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
