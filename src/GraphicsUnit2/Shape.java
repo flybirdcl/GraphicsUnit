@@ -1,174 +1,87 @@
 package GraphicsUnit2;
 
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Shape {
 
-    //instance variables
-    private int xPos;
-    private int yPos;
-    private int width;
-    private int height;
-    private Color color;
-    private int xSpeed;
-    private int ySpeed;
+	// instance variables
+	private int xPos;
+	private int yPos;
+	private int width;
+	private int height;
+	private Color color;
+	private int xSpeed;
+	private int ySpeed;
 
-    /*
-     *The constructor is used to initialize all instance variables.
-     *The constructor makes the object.
-     */
-    public Shape(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd) {
-        xPos = x;
-        //finish this constructor
-        yPos = y;
-        width = wid;
-        height = ht;
-        color = col;
-        xSpeed = xSpd;
-        ySpeed = ySpd;
-    }
+	public Shape(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd) {
+		xPos = x;
+		yPos = y;
+		width = wid;
+		height = ht;
+		color = col;
+		xSpeed = xSpd;
+		ySpeed = ySpd;
+	}
 
-    /*
-     *The draw method draws the shape on the screen.
-     */
-    public void draw(Graphics window) {
-        window.setColor(getColor());
-        window.fillRect(getxPos(), getyPos(), getWidth(), getHeight());
+	public void draw(Graphics window) {
 
-        //draw whatever you want
-        //    ^
-        //  [ :: ]
-        //    ()
-        //trunk
-        window.setColor(Color.MAGENTA);
-        window.fillRect(getxPos() + getWidth() / 2 - 5, getyPos() + 20, 10, getHeight());
-        //tree top
-        window.setColor(getColor());
-        window.fillOval(getxPos(), getyPos(), getWidth(), getHeight() - 20);
+		window.setColor(color);
+		window.fillOval(xPos + 10, yPos + 10, width - 10, height - 10);
 
-    }
+		window.setColor(Color.GREEN);
+		window.fillRect(xPos + 10 + 10, yPos + 10 + 10, width - 30, height - 30);
 
-    /*
-     *This draw method will be used to erase the shape.
-     */
-    public void draw(Graphics window, Color col) {
-        window.setColor(col);
-        window.fillRect(getxPos(), getyPos(), getWidth(), getHeight());
-    }
+		window.setColor(Color.WHITE);
+		window.fillOval(xPos + 10 + 30, yPos + 10 + 30, width - 70, height - 70);
+	}
 
-    public void moveAndDraw(Graphics window) {
-        //not needed yet
-        setxPos(getxPos()+getxSpeed());
-        setyPos(getyPos()+getySpeed());
-        draw(window);
-    }
+	// clear shape
+	public void draw(Graphics window, Color col) {
+		window.setColor(col);
+		window.fillRect(xPos, yPos, width, height);
+	}
 
-    public String toString() {
-        return getxPos() + " " + getyPos() + " " + getWidth() + " " + getHeight() + " " + getColor() + " " + getxSpeed() + " " + getySpeed();
-    }
+	public void moveAndDraw(Graphics window) {
+		xPos += xSpeed;
+		yPos += ySpeed;
+		draw(window);
+	}
 
-    /**
-     * @return the xPos
-     */
-    public int getxPos() {
-        return xPos;
-    }
+	// add in set and get methods for xPos, yPos, xSpeed, and ySpeed
+	public int getX() {
+		return xPos;
+	}
 
-    /**
-     * @param xPos the xPos to set
-     */
-    public void setxPos(int xPos) {
-        this.xPos = xPos;
-    }
+	public void setX(int x) {
+		xPos = x;
+	}
 
-    /**
-     * @return the yPos
-     */
-    public int getyPos() {
-        return yPos;
-    }
+	public int getY() {
+		return yPos;
+	}
 
-    /**
-     * @param yPos the yPos to set
-     */
-    public void setyPos(int yPos) {
-        this.yPos = yPos;
-    }
+	public void setY(int y) {
+		yPos = y;
+	}
 
-    /**
-     * @return the width
-     */
-    public int getWidth() {
-        return width;
-    }
+	public int getXSpeed() {
+		return xSpeed;
+	}
 
-    /**
-     * @param width the width to set
-     */
-    public void setWidth(int width) {
-        this.width = width;
-    }
+	public void setXSpeed(int x) {
+		xSpeed = x;
+	}
 
-    /**
-     * @return the height
-     */
-    public int getHeight() {
-        return height;
-    }
+	public int getYSpeed() {
+		return ySpeed;
+	}
 
-    /**
-     * @param height the height to set
-     */
-    public void setHeight(int height) {
-        this.height = height;
-    }
+	public void setYSpeed(int y) {
+		ySpeed = y;
+	}
 
-    /**
-     * @return the color
-     */
-    public Color getColor() {
-        return color;
-    }
-
-    /**
-     * @param color the color to set
-     */
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    /**
-     * @return the xSpeed
-     */
-    public int getxSpeed() {
-        return xSpeed;
-    }
-
-    /**
-     * @param xSpeed the xSpeed to set
-     */
-    public void setxSpeed(int xSpeed) {
-        this.xSpeed = xSpeed;
-    }
-
-    /**
-     * @return the ySpeed
-     */
-    public int getySpeed() {
-        return ySpeed;
-    }
-
-    /**
-     * @param ySpeed the ySpeed to set
-     */
-    public void setySpeed(int ySpeed) {
-        this.ySpeed = ySpeed;
-    }
+	public String toString() {
+		return xPos + " " + yPos + " " + width + " " + height + " " + color + " " + xSpeed + " " + ySpeed;
+	}
 }
